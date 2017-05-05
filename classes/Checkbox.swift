@@ -8,32 +8,41 @@
 
 import UIKit
 
-@IBDesignable
-class Checkbox: UIButton {
+@objc protocol CheckboxDelegate {
+  @objc optional func checkboxWasChecked()
+  @objc optional func checkboxWasUnchecked()
+}
 
+// @IBDesignable
+class Checkbox: UIButton {
+  
+  var delegate: CheckboxDelegate?
+  
   @IBInspectable
   var checked: Bool = false
-
+  
   @IBInspectable
   var stroke: CGFloat = 0.5
-
+  
   @IBInspectable
   var tint: UIColor = .black
-
+  
   override func awakeFromNib() {
     self.addTarget(self, action: #selector(self.toggle), for: .touchUpInside)
     self.contentMode = .redraw
   }
-
+  
   func toggle() {
     if self.checked == true {
       self.checked = false
+      self.delegate?.checkboxWasUnchecked?()
     } else {
       self.checked = true
+      self.delegate?.checkboxWasChecked?()
     }
     setNeedsDisplay()
   }
-
+  
   func box() -> UIBezierPath {
     let offset = self.stroke / 2
     let path = UIBezierPath()
@@ -45,7 +54,7 @@ class Checkbox: UIButton {
     path.lineWidth = self.stroke
     return path
   }
-
+  
   func check() -> UIBezierPath {
     let path = UIBezierPath()
     path.move(to: CGPoint(x: 0 + self.stroke, y: 0 + self.stroke))
@@ -55,7 +64,7 @@ class Checkbox: UIButton {
     path.lineWidth = self.stroke
     return path
   }
-
+  
   override func draw(_ rect: CGRect) {
     tint.set()
     box().stroke()
@@ -63,5 +72,5 @@ class Checkbox: UIButton {
       check().stroke()
     }
   }
-
+  
 }
