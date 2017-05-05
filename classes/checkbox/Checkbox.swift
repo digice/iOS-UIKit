@@ -11,6 +11,7 @@ import UIKit
   @objc optional func checkboxDidChangeState(_ tag: Int, _ checked: Bool)
 }
 
+/* Uncomment the below line if you want to see your checkbox in the storyboard */
 // @IBDesignable
 class Checkbox: UIButton {
   
