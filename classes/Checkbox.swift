@@ -13,7 +13,7 @@ import UIKit
   @objc optional func checkboxWasUnchecked()
 }
 
-// @IBDesignable
+@IBDesignable
 class Checkbox: UIButton {
   
   var delegate: CheckboxDelegate?
