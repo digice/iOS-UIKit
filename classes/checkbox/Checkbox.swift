@@ -16,23 +16,23 @@ import UIKit
 @IBDesignable
 class Checkbox: UIButton {
   
-  var delegate: CheckboxDelegate?
+  public var delegate: CheckboxDelegate?
   
   @IBInspectable
-  var checked: Bool = false
+  public var checked: Bool = false
   
   @IBInspectable
-  var stroke: CGFloat = 0.5
+  public var stroke: CGFloat = 0.5
   
   @IBInspectable
-  var tint: UIColor = .black
+  public var tint: UIColor = .black
   
   override func awakeFromNib() {
     self.addTarget(self, action: #selector(self.toggle), for: .touchUpInside)
     self.contentMode = .redraw
   }
   
-  func toggle() {
+  public func toggle() {
     if self.checked == true {
       self.checked = false
       self.delegate?.checkboxWasUnchecked?()
@@ -43,7 +43,7 @@ class Checkbox: UIButton {
     setNeedsDisplay()
   }
   
-  func box() -> UIBezierPath {
+  private func box() -> UIBezierPath {
     let offset = self.stroke / 2
     let path = UIBezierPath()
     path.move(to: CGPoint(x: 0, y: 0 + offset))
@@ -55,7 +55,7 @@ class Checkbox: UIButton {
     return path
   }
   
-  func check() -> UIBezierPath {
+  private func check() -> UIBezierPath {
     let path = UIBezierPath()
     path.move(to: CGPoint(x: 0 + self.stroke, y: 0 + self.stroke))
     path.addLine(to: CGPoint(x: self.bounds.width - self.stroke, y: self.bounds.height - self.stroke))
