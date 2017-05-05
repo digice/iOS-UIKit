@@ -21,13 +21,13 @@ _A very simple checkbox (UIButton subclass) which draws itself. No image assets 
 class ViewController: UIViewController, CheckboxDelegate
 ```
 
-- in awakeFromNib() or viewDidLoad(), set yourself as the delegate
+- in awakeFromNib() or viewDidLoad(), set yourself as the delegate and assign a tag, i.e., if you have more than one checkbox
 ```swift
 self.myCheckbox.delegate = self
+self.myCheckbox.tag = 0
 ```
 
-- optionally implement the two available delegate methods
+- optionally implement the available delegate method. The tag parameter identifies the checkbox and the checked parameter tells you whether checked was changed to true or false
 ```swift
-func checkboxWasChecked()
-func checkboxWasUnchecked()
+checkboxDidChangeState(_ tag: Int, _ checked: Bool)
 ```
