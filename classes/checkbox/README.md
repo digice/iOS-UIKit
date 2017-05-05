@@ -27,7 +27,7 @@ self.myCheckbox.delegate = self
 self.myCheckbox.tag = 0
 ```
 
-- optionally implement the available delegate method. The tag parameter identifies the checkbox and the checked parameter tells you what checked value was changed to
+- optionally implement the available delegate method. The tag parameter identifies the checkbox and the checked parameter tells you what the checked parameter was changed to
 ```swift
 checkboxDidChangeState(_ tag: Int, _ checked: Bool)
 ```
