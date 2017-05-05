@@ -5,15 +5,13 @@
 //  Created by Roderic Linguri on 5/3/17.
 //  Copyright © 2017 Digices LLC. All rights reserved.
 //
-
 import UIKit
 
 @objc protocol CheckboxDelegate {
-  @objc optional func checkboxWasChecked()
-  @objc optional func checkboxWasUnchecked()
+  @objc optional func checkboxDidChangeState(_ tag: Int, _ checked: Bool)
 }
 
-@IBDesignable
+// @IBDesignable
 class Checkbox: UIButton {
   
   public var delegate: CheckboxDelegate?
@@ -35,10 +33,10 @@ class Checkbox: UIButton {
   public func toggle() {
     if self.checked == true {
       self.checked = false
-      self.delegate?.checkboxWasUnchecked?()
+      self.delegate?.checkboxDidChangeState?(self.tag, false)
     } else {
       self.checked = true
-      self.delegate?.checkboxWasChecked?()
+      self.delegate?.checkboxDidChangeState?(self.tag, true)
     }
     setNeedsDisplay()
   }
