@@ -4,7 +4,7 @@ _A very simple checkbox (UIButton subclass) which draws itself. No image assets 
 
 1. Import the Checkbox.swift class file into your project
 
-2. The following runtime attributes can be edited in Interface Builder:
+2. The following runtime attributes can be edited in Interface Builder (or set in code):
 
 - checked (true or false)
 - stroke (the line weight in points)
