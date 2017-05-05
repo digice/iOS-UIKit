@@ -10,7 +10,7 @@ _A very simple checkbox (UIButton subclass) which draws itself. No image assets 
 - stroke (the line weight in points)
 - tint (the color of the lines)
 
-3. additionally, there is a public method to toggle the state of the checkbox:
+3. Additionally, there is a public method to toggle the state of the checkbox:
 
 - toggle() (check the box if unchecked, or uncheck if checked)
 
