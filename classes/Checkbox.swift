@@ -15,10 +15,10 @@ class Checkbox: UIButton {
   var checked: Bool = false
 
   @IBInspectable
-  var boxStroke: CGFloat = 0.5
+  var stroke: CGFloat = 0.5
 
   @IBInspectable
-  var strokeColor: UIColor = .black
+  var tint: UIColor = .black
 
   override func awakeFromNib() {
     self.addTarget(self, action: #selector(self.toggle), for: .touchUpInside)
@@ -35,25 +35,25 @@ class Checkbox: UIButton {
 
   func box() -> UIBezierPath {
     let path = UIBezierPath()
-    path.move(to: CGPoint(x: 0 + self.boxStroke, y: 0 + self.boxStroke))
-    path.addLine(to: CGPoint(x: self.bounds.width - self.boxStroke, y: 0 + self.boxStroke))
-    path.addLine(to: CGPoint(x: self.bounds.width - self.boxStroke, y: self.bounds.height - self.boxStroke))
-    path.addLine(to: CGPoint(x: 0 + self.boxStroke, y: self.bounds.height - self.boxStroke))
-    path.addLine(to: CGPoint(x: 0 + self.boxStroke, y: 0 + (self.boxStroke / 2)))
+    path.move(to: CGPoint(x: 0 + self.stroke, y: 0 + self.stroke))
+    path.addLine(to: CGPoint(x: self.bounds.width - self.stroke, y: 0 + self.stroke))
+    path.addLine(to: CGPoint(x: self.bounds.width - self.stroke, y: self.bounds.height - self.stroke))
+    path.addLine(to: CGPoint(x: 0 + self.stroke, y: self.bounds.height - self.stroke))
+    path.addLine(to: CGPoint(x: 0 + self.stroke, y: 0 + (self.stroke / 2)))
     return path
   }
 
   func check() -> UIBezierPath {
     let path = UIBezierPath()
-    path.move(to: CGPoint(x: 0 + self.boxStroke, y: 0 + self.boxStroke))
-    path.addLine(to: CGPoint(x: self.bounds.width - self.boxStroke, y: self.bounds.height - self.boxStroke))
-    path.move(to: CGPoint(x: self.bounds.width - self.boxStroke, y: 0 + self.boxStroke))
-    path.addLine(to: CGPoint(x: 0 + self.boxStroke, y: self.bounds.height - self.boxStroke))
+    path.move(to: CGPoint(x: 0 + self.stroke, y: 0 + self.stroke))
+    path.addLine(to: CGPoint(x: self.bounds.width - self.stroke, y: self.bounds.height - self.stroke))
+    path.move(to: CGPoint(x: self.bounds.width - self.stroke, y: 0 + self.stroke))
+    path.addLine(to: CGPoint(x: 0 + self.stroke, y: self.bounds.height - self.stroke))
     return path
   }
 
   override func draw(_ rect: CGRect) {
-    strokeColor.set()
+    tint.set()
     box().stroke()
     if self.checked == true {
       check().stroke()
