@@ -10,18 +10,18 @@ _A very simple checkbox (UIButton subclass) which draws itself. No image assets 
 - stroke (the line weight in points)
 - tint (the color of the lines)
 
-additionally, there is a public method to toggle the state of the checkbox:
+3. additionally, there is a public method to toggle the state of the checkbox:
 
 - toggle() (check the box if unchecked, or uncheck if checked)
 
-2. Refer to the included ViewController.swift file to see an example of the implementation
+4. Refer to the included ViewController.swift file to see an example of the implementation
 
 - add the CheckboxDelegate protocol to your class declaration
 ```swift
 class ViewController: UIViewController, CheckboxDelegate
 ```
 
-- in awakeFromNib() or viewDidLoad, set yourself as the delegate
+- in awakeFromNib() or viewDidLoad(), set yourself as the delegate
 ```swift
 self.myCheckbox.delegate = self
 ```
