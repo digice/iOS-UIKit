@@ -69,7 +69,7 @@ class FormGroup: UIView, UITextFieldDelegate {
     path.addLine(to: CGPoint(x: self.bounds.width, y: yPosition))
     path.lineWidth = self.strokeWeight
     return path
-  }
+  } // ./border
 
   private func separator() -> UIBezierPath {
     let path = UIBezierPath()
@@ -77,7 +77,7 @@ class FormGroup: UIView, UITextFieldDelegate {
     path.addLine(to: CGPoint(x: self.bounds.width * 0.25, y: self.bounds.height))
     path.lineWidth = self.strokeWeight
     return path
-  }
+  } // ./separator
 
   private func setupLabel() {
 
@@ -100,7 +100,7 @@ class FormGroup: UIView, UITextFieldDelegate {
 
     self.addSubview(self.label)
 
-  }
+  } // ./setupLabel
 
   private func setupField() {
 
@@ -136,7 +136,7 @@ class FormGroup: UIView, UITextFieldDelegate {
     
     self.addSubview(self.field)
 
-  }
+  } // ./setupField
 
   private func toggleLabel() {
     if let fieldText = self.field.text {
@@ -149,7 +149,7 @@ class FormGroup: UIView, UITextFieldDelegate {
         self.label.isHidden = false
       }
     }
-  }
+  } // ./toggleLabel
 
   // MARK: UIView
 
@@ -157,7 +157,7 @@ class FormGroup: UIView, UITextFieldDelegate {
     super.awakeFromNib()
     self.contentMode = .redraw
     self.backgroundColor = .clear
-  }
+  } // ./awakeFromNib
 
   override func draw(_ rect: CGRect) {
 
@@ -183,7 +183,7 @@ class FormGroup: UIView, UITextFieldDelegate {
 
     setNeedsDisplay()
 
-  }
+  } // ./draw
   
   // MARK: - UITextFieldDelegate
 
@@ -193,7 +193,7 @@ class FormGroup: UIView, UITextFieldDelegate {
     if let delegate = self.delegate {
       delegate.formGroupDidStartEditing(at: 0)
     }
-  }
+  } // ./textFieldDidBeginEditing
 
   func textFieldDidEndEditing(_ textField: UITextField) {
     self.value = self.field.text!
@@ -201,6 +201,6 @@ class FormGroup: UIView, UITextFieldDelegate {
     if let delegate = self.delegate {
       delegate.formGroupDidEndEditing()
     }
-  }
+  } // ./textFieldDidEndEditing
 
 }
