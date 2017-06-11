@@ -191,7 +191,7 @@ class FormGroup: UIView, UITextFieldDelegate {
     self.label.isHidden = false
     self.field.placeholder = ""
     if let delegate = self.delegate {
-      delegate.formGroupDidStartEditing(at: 0)
+      delegate.formGroupDidStartEditing(at: self.yPosition)
     }
   } // ./textFieldDidBeginEditing
 
