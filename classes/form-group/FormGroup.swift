@@ -162,12 +162,13 @@ class FormGroup: UIView, UITextFieldDelegate {
   override func draw(_ rect: CGRect) {
 
     if let container = self.superview {
-      if container.bounds.width > self.threshold {
-        self.landscape = true
-      } else {
-        self.landscape = false
-      }
       self.yPosition = container.frame.minY + self.frame.minY
+    }
+
+    if self.bounds.width > self.threshold {
+      self.landscape = true 
+    } else {
+      self.landscape = false
     }
 
     self.strokeColor.set()
